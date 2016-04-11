@@ -1,1 +1,3 @@
 apt-get install poppler-utils rename figlet imagemagick
+create /home/$USER/documents
+change docsearch.sh to use your documents directory
