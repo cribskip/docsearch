@@ -1,0 +1,48 @@
+body, html {
+  margin:0;
+  padding:0;
+}
+
+#head {
+  background: #777;
+  height: 5%;
+  margin: 0;
+  padding: 1%;
+  text-align: center;
+  color: white;
+  margin-top: 0;
+}
+
+.dz-preview {
+  display: none;
+}
+
+form#dropzone {
+  border: 2px dashed #ccc;
+  padding: 5px;
+  width: 33%;
+  margin: auto;
+}
+
+#result {
+  text-align: center;
+  margin: 0px;
+}
+
+a#go {
+ color: #fff;
+ text-decoration: none;
+}
+
+a.doc {
+  margin: 5px;
+  display: inline-block;
+}
+
+a.doc img {
+  width: 212px;
+  height: 300px;
+  background: url('/static/transparent.png');
+  margin: 0;
+  border: 1px solid black;
+}

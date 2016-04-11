@@ -1,0 +1,60 @@
+#!/bin/bash
+set -x
+
+# Kill first
+renice 19 $$ > /dev/null
+echo 1000 > /proc/$$/oom_score_adj
+
+cd $1
+
+# Remove whitespaces
+rename 's/ /_/g' *
+
+cnt=$(ls *.pdf | wc -l)
+[ "$cnt" -lt 1 ] && exit 1
+
+for i in *
+do
+  [ -e ocr.lock ] && exit 1
+  touch ocr.lock
+  echo "Importiere ... 5%" > state
+
+  file=$i
+  figlet $file
+
+  dir=$(cat /proc/sys/kernel/random/uuid)
+  mkdir $dir
+  mv $file $dir/
+  cd $dir
+  echo "Importiere ... $file" > ../state
+
+  # From Scanner
+  type=$(file --mime-type $file | cut -d' ' -f2-)
+  if [ "$type" != "application/pdf" ]
+  then
+    convert $file Apdf.pdf
+  fi
+  pdftotext ${file} $dir'.txt'
+  cnt=$(wc -w $dir'.txt' | awk '{print $1}')
+  if [ "$cnt" -lt 30 ]
+  then
+    ocrmypdf -v -d -l deu $file Apdf.pdf
+    [ ! -e Apdf.pdf ] && convert $file Apdf.pdf
+    pdftotext Apdf.pdf $dir'.txt'
+  fi
+
+  # Generate thumbnails (small x300px, medium x600px)
+  convert -thumbnail x300 -background white -alpha remove ${file}[0] thumb300.png 2>&1 >/dev/null
+  mv thumb300.png output_thumbnail.png
+
+  # Add filename to search results
+  echo $file >> $dir'.txt'
+
+  # Copy to Apdf.pdf if not already existing
+  [ ! -e Apdf.pdf ] && cp *.pdf Apdf.pdf
+
+  cd ..
+  rm ocr.lock
+  echo > state
+done
+mv *-*-*-*-* ../imported

@@ -1,0 +1,19 @@
+<!doctype html>
+<title>Docsearch</title>
+<script type="text/javascript" src="/static/jquery-2.2.0.min.js"></script>
+{% block body %}
+<script src="/static/dropzone.js" type="text/javascript"></script>
+<script src="/static/pdfobject.js" type="text/javascript"></script>
+<script src="/static/script.js" type="text/javascript"></script>
+<link rel="stylesheet" media="only screen and (max-width: 400px)" href="/static/handheld.css" />
+<link rel="stylesheet" media="only screen and (min-width: 401px)" href="/static/screen.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<p id="head">
+  <span id="state"></span>
+  Suche:&nbsp; <input type="text" size="20" name="q" id="q" value="" autocomplete="off">&nbsp;<a href=# id="go" title="Finde!">Los!</a>
+</p>
+<div id="result">
+  <form action="/upload" class="dropzone" id="dropzone" method="post" enctype="multipart/form-data"></form>
+</div>
+<div id="detail"><span id="cmd"></span><div id="docview"></div></div>
+{% endblock %}
