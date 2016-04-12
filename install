@@ -1,4 +1,5 @@
-apt-get install poppler-utils rename figlet imagemagick
+apt-get install poppler-utils rename figlet imagemagick libtesseract3 tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-equ tesseract-ocr-osd 
+pip install Flask
 create /home/$USER/documents
 change docsearch.sh to use your documents directory
 cd /home/$USER/documents
