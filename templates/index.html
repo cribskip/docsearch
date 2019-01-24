@@ -8,6 +8,9 @@
 <link rel="stylesheet" media="only screen and (max-width: 400px)" href="/static/handheld.css" />
 <link rel="stylesheet" media="only screen and (min-width: 401px)" href="/static/screen.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="shortcut icon" sizes="192x192" href="{{ url_for('static', filename='48px-Gnome-applications-office.svg.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
 <p id="head">
   <span id="state"></span>
   Suche:&nbsp; <input type="text" size="20" name="q" id="q" value="" autocomplete="off">&nbsp;<a href=# id="go" title="Finde!">Los!</a>

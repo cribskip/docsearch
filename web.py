@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.6
 
 import os.path
 import os, fnmatch
@@ -6,7 +6,7 @@ import re, sys
 import subprocess
 from flask import Flask, render_template, request, redirect
 from werkzeug import secure_filename
-from flask.ext.autoindex import AutoIndex
+from flask_autoindex import AutoIndex
 
 print (sys.argv);
 dir = sys.argv[1]
@@ -98,6 +98,7 @@ def state():
 
 ################################################################################
 @app.route('/')
+@app.route('/index.html')
 def index():
   return render_template('index.html')
 
@@ -105,5 +106,5 @@ def index():
 AutoIndex(app, browse_root=dir)
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run(host='0.0.0.0',port=5000)

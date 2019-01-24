@@ -31,6 +31,7 @@ function showPDF(file) {
           $('p#head').animate({ margin: 0 }, 500, function() {
             $('#result').css('float', 'left');
             $('#result').html(data);
+            $('#detail').html("<span id='cmd'></span><div id='docview'></div>");
             document.title = $('input[name="q"]').val()
             $('h1#title').text($('input[name="q"]').val())
 
@@ -65,5 +66,5 @@ function showPDF(file) {
     $("#state").load('/state');
     setInterval(function() {
        $("#state").load('/state');
-      }, 1000);
+      }, 3000);
   });

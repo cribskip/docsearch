@@ -1,5 +1,6 @@
 apt-get install poppler-utils rename figlet imagemagick libtesseract3 tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-equ tesseract-ocr-osd 
 pip install Flask
+pip3 install ocrmypdf
 create /home/$USER/documents
 change docsearch.sh to use your documents directory
 cd /home/$USER/documents

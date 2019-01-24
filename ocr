@@ -16,6 +16,7 @@ cnt=$(ls *.pdf | wc -l)
 for i in *
 do
   [ -e ocr.lock ] && exit 1
+  [ "$i" = "state" ] && continue
   touch ocr.lock
   echo "Importiere ... 5%" > state
 
@@ -38,7 +39,7 @@ do
   cnt=$(wc -w $dir'.txt' | awk '{print $1}')
   if [ "$cnt" -lt 30 ]
   then
-    ocrmypdf -v -d -l deu $file Apdf.pdf
+    ocrmypdf -v -d -l deu --jobs 1 $file Apdf.pdf
     [ ! -e Apdf.pdf ] && convert $file Apdf.pdf
     pdftotext Apdf.pdf $dir'.txt'
   fi

@@ -1,0 +1,15 @@
+{
+  "short_name": "Docsearch",
+  "name": "Dokumentenverwaltung",
+  "icons": [
+    { "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gnome-applications-office.svg/48px-Gnome-applications-office.svg.png", "sizes": "48x48" },
+    { "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gnome-applications-office.svg/72px-Gnome-applications-office.svg.png", "sizes": "72x72" },
+    { "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gnome-applications-office.svg/96px-Gnome-applications-office.svg.png", "sizes": "96x96" },
+    { "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gnome-applications-office.svg/128px-Gnome-applications-office.svg.png", "sizes": "128x128" },
+    { "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gnome-applications-office.svg/144px-Gnome-applications-office.svg.png", "sizes": "144x144" },
+    { "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gnome-applications-office.svg/192px-Gnome-applications-office.svg.png", "sizes": "192x192" }
+  ],
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "aliceblue"
+}
