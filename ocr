@@ -27,7 +27,7 @@ do
   mkdir $dir
   mv $file $dir/
   cd $dir
-  echo "Importiere ... $file" > ../state
+  echo "Importing ... $file" > ../state
 
   # From Scanner
   type=$(file --mime-type $file | cut -d' ' -f2-)
@@ -58,4 +58,6 @@ do
   rm ocr.lock
   echo > state
 done
+
+# Move directories to target
 mv *-*-*-*-* ../imported
