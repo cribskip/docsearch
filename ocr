@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 
 # Kill first
 renice 19 $$ > /dev/null
@@ -8,7 +8,7 @@ echo 1000 > /proc/$$/oom_score_adj
 cd $1
 
 # Remove whitespaces
-rename 's/ /_/g' *
+rename 's/ /_/g' * 2>/dev/null
 
 cnt=$(ls *.pdf | wc -l)
 [ "$cnt" -lt 1 ] && exit 1

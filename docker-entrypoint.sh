@@ -2,6 +2,11 @@
 
 export LANG=en_GB.UTF-8
 
+
+mkdir /docs/imported
+mkdir /docs/Scan
+touch /docs/state
+
 . /appenv/bin/activate
 /appenv/docsearch/web.py /docs
 
