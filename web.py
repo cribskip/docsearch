@@ -1,9 +1,4 @@
 #!/usr/bin/python3.5
-# encoding=utf8  
-import sys  
-
-reload(sys)  
-sys.setdefaultencoding('utf8')
 
 import os.path
 import os, fnmatch
