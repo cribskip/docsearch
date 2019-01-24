@@ -1,9 +1,4 @@
 #!/usr/bin/python3.5
-# encoding=utf8  
-import sys  
-
-reload(sys)  
-sys.setdefaultencoding('utf8')
 
 import os.path
 import os, fnmatch
@@ -68,7 +63,7 @@ def find():
   for path, dirs, files in os.walk(os.path.abspath(dir)):
     for filename in fnmatch.filter(files, '*.txt'):
       filepath = os.path.join(path, filename)
-      with open(filepath) as f:
+      with open(filepath, encoding='utf-8', errors='ignore') as f:
         alines = f.readlines();
         alines = " ".join(alines);
         if all(i.lower() in alines.lower() for i in find):
