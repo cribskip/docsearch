@@ -18,7 +18,7 @@ do
   [ -e ocr.lock ] && exit 1
   [ "$i" = "state" ] && continue
   touch ocr.lock
-  echo "Importiere ... 5%" > state
+  echo "Importing ... 5%" > state
 
   file=$i
   figlet $file
