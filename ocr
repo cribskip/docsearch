@@ -10,7 +10,7 @@ cd $1
 # Remove whitespaces
 rename 's/ /_/g' * 2>/dev/null
 
-cnt=$(ls *.pdf | wc -l)
+cnt=$(ls *.pdf 2>/dev/null| wc -l)
 [ "$cnt" -lt 1 ] && exit 1
 
 for i in *
@@ -58,4 +58,6 @@ do
   rm ocr.lock
   echo > state
 done
+
+# Move to imported
 mv *-*-*-*-* ../imported
