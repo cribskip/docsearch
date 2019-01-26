@@ -1,9 +1,0 @@
-[Unit]
-Description=DocSearch PDF archiver/searcher
-
-[Service]
-Type=simple
-ExecStart=/bin/su - sascha -c '/usr/share/docsearch/web.py /home/sascha/Dokumente'
-
-[Install]
-WantedBy=multi-user.target
