@@ -43,16 +43,16 @@ do
     [ ! -e Apdf.pdf ] && convert $file Apdf.pdf
     pdftotext Apdf.pdf $dir'.txt'
   fi
+  
+  # Copy to Apdf.pdf if not already existing
+  [ ! -e Apdf.pdf ] && cp *.pdf Apdf.pdf
 
   # Generate thumbnails (small x300px, medium x600px)
-  convert -thumbnail x300 -background white -alpha remove ${file}[0] thumb300.png 2>&1 >/dev/null
+  convert -thumbnail x300 -background white -alpha remove Apdf.pdf thumb300.png 2>&1 >/dev/null
   mv thumb300.png output_thumbnail.png
 
   # Add filename to search results
   echo $file >> $dir'.txt'
-
-  # Copy to Apdf.pdf if not already existing
-  [ ! -e Apdf.pdf ] && cp *.pdf Apdf.pdf
 
   cd ..
   rm ocr.lock
