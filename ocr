@@ -48,8 +48,7 @@ do
   [ ! -e Apdf.pdf ] && cp *.pdf Apdf.pdf
 
   # Generate thumbnails (small x300px, medium x600px)
-  convert -thumbnail x300 -background white -alpha remove Apdf.pdf thumb300.png 2>&1 >/dev/null
-  mv thumb300.png output_thumbnail.png
+  convert -thumbnail x300 -background white -alpha remove Apdf.pdf[0] output_thumbnail.png 2>&1 >/dev/null
 
   # Add filename to search results
   echo $file >> $dir'.txt'
